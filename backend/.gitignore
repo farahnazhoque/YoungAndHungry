@@ -16,9 +16,13 @@ dist-ssr
 .vscode/*
 !.vscode/extensions.json
 .idea
-.DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+
+# Environment and sensitive files
+.env
+serviceAccountKey.json
+node_modules
