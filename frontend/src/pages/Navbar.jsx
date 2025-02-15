@@ -14,7 +14,7 @@ function classNames(...classes) {
 
 export default function Navbar() {
   return (
-    <Disclosure as="nav" style={{ backgroundColor: '#ABE8DD', fontFamily: 'Jua, sans-serif', borderBottom: '2px solid #372F35' }}>
+    <Disclosure as="nav" style={{ backgroundColor: '#1FA19C', fontFamily: 'Jua, sans-serif', borderBottom: '2px solid #372F35' }}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="relative flex h-27 items-center justify-between">
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -33,7 +33,7 @@ export default function Navbar() {
               <img
                 alt="Young and Hungry"
                 src="../../public/logo.png"
-                className="h-17 w-auto"
+                className="h-18 w-auto"
               />
             </div>
 
@@ -49,7 +49,7 @@ export default function Navbar() {
                  style={{
                    backgroundColor: item.current ? "#EB8942" : "transparent",
                    border: item.current ? "2px solid #372F35" : "none",
-                   color: item.current ? "white" : "#372F35",
+                   color: item.current ? "white" : "#f7ceb1",
                    fontFamily: "Jua, sans-serif"
                  }}
                >
@@ -66,7 +66,7 @@ export default function Navbar() {
             {/* Bell Icon */}
             <button
               type="button"
-              className="relative rounded-full bg-[#ABE8DD] p-3 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+              className="relative rounded-full bg-[#1FA19C] p-3 text-[#f7ceb1] hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
             >
               <span className="absolute -inset-1.5" />
               <span className="sr-only">View notifications</span>
@@ -76,7 +76,7 @@ export default function Navbar() {
             {/* Profile dropdown */}
             <Menu as="div" className="relative ml-4">
               <div>
-                <MenuButton className="relative flex rounded-full bg-[#ABE8DD] text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                <MenuButton className="relative flex rounded-full bg-[#1FA19C] text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                   <span className="absolute -inset-1.5" />
                   <span className="sr-only">Open user menu</span>
                   <img
@@ -121,7 +121,7 @@ export default function Navbar() {
               href={item.href}
               aria-current={item.current ? 'page' : undefined}
               className={classNames(
-                item.current ? 'bg-gray-900 text-white' : 'text-gray-900 hover:bg-gray-700 hover:text-white',
+                item.current ? 'bg-[#EB8942] text-white' : 'text-[#f7ceb1] hover:bg-[#EB8942] hover:text-white',
                 'block rounded-md px-4 py-3 text-lg font-semibold'
               )}
             >
