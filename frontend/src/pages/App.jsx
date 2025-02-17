@@ -146,12 +146,22 @@ function App() {
 
         </div>
         <div className="flex justify-center gap-3 mb-16">
-          <button className="bg-[#EB8942] px-6 py-3 text-white border-2 border-[black] font-semibold hover:bg-[black] transition-colors rounded-md">
-            Get Started
-          </button>
-          <button className="bg-white px-6 py-3 text-[#EB8942] font-semibold border-2 border-[black] hover:bg-[#FDF1DB] transition-colors rounded-md">
-            Learn More
-          </button>
+        <div className="mt-6">
+            <a
+              href={"#"}
+              className="bg-[#EB8942] text-white font-bold px-6 py-3 rounded-full border-2 border-black shadow-md hover:bg-[#e6b722] transition"
+            >
+              PODCASTS
+            </a>
+          </div>
+          <div className="mt-6">
+            <a
+              href={"#"}
+              className="bg-[#FFC72C] text-black font-bold px-6 py-3 rounded-full border-2 border-black shadow-md hover:bg-[#e6b722] transition"
+            >
+              SEE MORE
+            </a>
+          </div>
         </div>
 
         <div
@@ -168,24 +178,56 @@ function App() {
         </div>
       </div>
 
-      <div className="bg-[#EB8942]">
-        <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-          <h2 className="sr-only">Products</h2>
-          <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+      <div className="bg-[#EB8942] py-16">
+        <div className=" mx-auto max-w-2xl px-4 pb-16 sm:px-6 lg:max-w-7xl lg:px-8">
+          <h1 className="text-3xl font-bold text-center text-gray-900" style={{marginBottom: '5rem', fontFamily: "Jua, sans-serif"}}>Latest Podcasts</h1>
+
+          {/* Grid Layout for Podcasts */}
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {products.map((product) => (
-              <a key={product.id} href={product.href} className="group">
-                <img
-                  alt={product.imageAlt}
-                  src={product.imageSrc}
-                  className="aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-7/8"
-                />
-                <h3 className="mt-4 text-sm text-gray-700">{product.name}</h3>
-                <p className="mt-1 text-lg font-medium text-gray-900">{product.price}</p>
-              </a>
+              <div
+                key={product.id}
+                className=" mt-4 bg-white border-4 border-black rounded-xl p-6 text-center shadow-md hover:shadow-lg transition-transform transform hover:scale-105"
+              >
+                {/* Image with Border */}
+                <div className="flex justify-center -mt-16">
+                  <a href={product.href} className="bg-white border-4 border-black rounded-lg p-2">
+                    <img
+                      alt={product.imageAlt}
+                      src={product.imageSrc}
+                      className="w-40 h-40 object-cover rounded-lg"
+                    />
+                  </a>
+                </div>
+
+                {/* Podcast Title */}
+                <h3 className="mt-6 text-lg font-bold text-gray-900">
+                  <a href={product.href} className="hover:text-[#EB8942]">
+                    {product.name}
+                  </a>
+                </h3>
+
+                {/* Podcast Description */}
+                <p className="text-gray-600 text-sm mt-2">
+                  Mindy and Guy Raz head to the community swimming pool to try out for his DREAM JOB! 
+                  There’s just one problem; all the other applicants are SEA LIONS! Classic mix-up!
+                </p>
+
+                {/* "See More" Button */}
+                <div className="mt-6">
+                  <a
+                    href={product.href}
+                    className="bg-[#FFC72C] text-black font-bold px-6 py-3 rounded-full border-2 border-black shadow-md hover:bg-[#e6b722] transition"
+                  >
+                    SEE MORE
+                  </a>
+                </div>
+              </div>
             ))}
           </div>
         </div>
       </div>
+
     </div>
   )
 }
