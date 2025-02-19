@@ -53,7 +53,9 @@ function App() {
 
   return (
 <div className="bg-[#f5e5d0] min-w-[538px] min-h-screen">
-<NavBar />
+  <div className="sticky top-0 z-50">
+    <NavBar />
+  </div>
       <header className="absolute inset-x-0 top-0 z-50">
         <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
           <div className="fixed inset-0 z-50" />
@@ -106,8 +108,6 @@ function App() {
       <div
         className="relative isolate px-4 sm:px-6 pt-14 lg:px-8 bg-hero bg-cover bg-center bg-no-repeat min-h-[40vh] sm:min-h-[60vh] lg:min-h-[80vh] w-full"
       >
-
-
         <div
           aria-hidden="true"
           className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
@@ -121,7 +121,7 @@ function App() {
         </div>
         <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
           <div className="hidden sm:mb-8 sm:flex sm:justify-center">
-            <div className="relative rounded-full px-3 py-1 text-sm/6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+            <div className="relative rounded-full px-3 py-1 text-sm/6 text-gray-600">
             &nbsp;
             </div>
           </div>
@@ -145,7 +145,7 @@ function App() {
           <div className="mt-10 sm:-mt-30">
             <a
               href={"#"}
-              className="bg-[#EB8942] text-white font-bold px-6 py-3 md:px-10 md:py-5 md:text-xl rounded-full border-2 border-black shadow-md hover:bg-[#e6b722] transition"
+              className="bg-[#EB8942] text-white font-bold px-6 py-3 md:px-10 md:py-5 md:text-xl rounded-full border-2 border-black shadow-[8px_8px_0px_rgba(0,0,0,1)] hover:bg-[#1FA19C] transition"
             >
               PODCASTS
             </a>
@@ -153,7 +153,7 @@ function App() {
           <div className="mt-6 sm:-mt-30">
             <a
               href={"#"}
-              className="bg-[#FFC72C] text-black font-bold px-6 py-3 md:px-10 md:py-5 md:text-xl rounded-full border-2 border-black shadow-md hover:bg-[#e6b722] transition"
+              className="bg-[#FFC72C] text-black font-bold px-6 py-3 md:px-10 md:py-5 md:text-xl rounded-full border-2 border-black shadow-[8px_8px_0px_rgba(0,0,0,1)] hover:bg-[#1FA19C] transition"
             >
               SEE MORE
             </a>
@@ -198,16 +198,14 @@ function App() {
                 </div>
 
                 {/* Podcast Title */}
-                <h3 className="mt-6 text-lg font-bold text-gray-900">
-                  <a href={product.href} className="hover:text-[#EB8942]">
-                    {product.name}
-                  </a>
+                <h3 className="mt-6 text-lg font-bold" style={{color: '#FA5857'}}>
+                  {product.name}
                 </h3>
 
                 {/* Podcast Description */}
                 <p className="text-gray-600 text-sm mt-2">
                   Mindy and Guy Raz head to the community swimming pool to try out for his DREAM JOB! 
-                  There’s just one problem; all the other applicants are SEA LIONS! Classic mix-up!
+                  There&apos;s just one problem; all the other applicants are SEA LIONS! Classic mix-up!
                 </p>
 
                 {/* "See More" Button */}
@@ -243,7 +241,7 @@ function App() {
         </div>
         <div className="mx-auto max-w-2xl py-48 sm:py-64 lg:py-72 max-h-2xl">
           <div className="hidden sm:mb-8 sm:flex sm:justify-center">
-            <div className="relative rounded-full px-3 py-1 text-sm/6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+            <div className="relative rounded-full px-3 py-1 text-sm/6 text-gray-600">
             &nbsp;
             </div>
           </div>
@@ -264,18 +262,18 @@ function App() {
 
         </div>
         <div className="flex flex-col sm:mt-10 sm:flex-row sm:justify-center justify-center items-center gap-3 mb-16 w-full px-6">
-          <div className="-mt-35 sm:-mt-82 sm:-ml-70">
+          <div className="-mt-15 sm:-mt-40 sm:-ml-70">
           <a
             href={"#"}
-            className="bg-[#EB8942] text-white font-bold px-6 py-3 md:px-10 md:py-5 md:text-xl rounded-full border-2 border-black shadow-md hover:bg-[#e6b722] transition"
+            className="bg-[#EB8942] text-white font-bold px-6 py-3 md:px-10 md:py-5 md:text-xl rounded-full border-2 border-black shadow-[8px_8px_0px_rgba(0,0,0,1)] hover:bg-[#FA5857] transition"
             >
             PARENTS
           </a>
         </div>
-        <div className="-mt-27 sm:-mt-82">
+        <div className="-mt-27 sm:-mt-40">
           <a
             href={"#"}
-            className="bg-[#FFC72C] text-black font-bold px-6 py-3 md:px-10 md:py-5 md:text-xl rounded-full border-2 border-black shadow-md hover:bg-[#e6b722] transition"
+            className="bg-[#FFC72C] text-black font-bold px-6 py-3 md:px-10 md:py-5 md:text-xl rounded-full border-2 border-black shadow-[8px_8px_0px_rgba(0,0,0,1)] hover:bg-[#FA5857] transition"
             >
             TEACHERS
           </a>
@@ -297,7 +295,47 @@ function App() {
         </div>
       </div>
 
-    </div>
+      <div className="bg-[#EB8942] py-16 border-b-5 border-black">
+        <div className=" mx-auto max-w-2xl px-4 pb-16 sm:px-6 lg:max-w-7xl lg:px-8">
+          <h1 className="underline decoration-dashed text-[50rem] font-bold text-center text-black" style={{marginBottom: '5rem', fontFamily: "Jua, sans-serif", fontSize: '5rem'}}>About Us</h1>
+
+          {/* Grid Layout for Podcasts */}
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-2">
+              <div className="flex justify-center items-center">
+              <img className="justify-center rounded-full w-96 h-96 animate-[spin_5s_linear_infinite]" src="../../public/LogoAbout.png" alt="Young and Hungry Logo"/>
+
+              </div>
+              <div className="bg-[#ABE8DD] rounded-lg shadow-[8px_8px_0px_rgba(0,0,0,1)] border-4 border-black p-8">
+                <h2 className="text-3xl font-bold mb-4" style={{fontFamily: "Jua, sans-serif"}}>Welcome to Young and Hungry!</h2>
+                <p className="text-lg leading-relaxed">
+                Young and Hungry is hosted by Dr. Sean Young, a UC Irvine Emergency Medicine and Informatics professor, and his two kids.
+                <br></br>
+                <br></br>
+                Join us as we dive into the stories of extraordinary children who are already leaving their mark on the world, whether they&apos;re budding entrepreneurs, elite athletes, or future leaders in their fields.
+                <br></br>
+                <br></br>
+Each episode features inspiring conversations with these talented kids, exploring their journeys, challenges, and the support that has helped them along the way. Whether you're a parent, a teacher, or a young achiever yourself, Young and Hungry is your go-to source for inspiration and encouragement.
+                </p>
+                <div className="flex justify-center items-center">
+                <a
+                  href={"#"}
+                  className="bg-[#EB8942] text-white font-bold px-6 py-3 md:px-10 md:py-5 md:text-xl rounded-full border-2 border-black shadow-[8px_8px_0px_rgba(0,0,0,1)] hover:text-black hover:bg-[#FFC72C] transition"
+                  >
+                  LEARN MORE
+                </a>
+              </div>
+              </div>
+             
+              </div>
+            </div>    
+          </div>
+        <footer className="bg-[#FFC72C] text-black py-4 text-center">
+          <p>
+            &copy; 2025 Young and Hungry. All rights reserved.
+          </p>
+        </footer>
+  </div>
+
   )
 }
 
