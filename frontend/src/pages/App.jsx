@@ -52,8 +52,8 @@ function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <div className="bg-[#f5e5d0]">
-      <NavBar />
+<div className="bg-[#f5e5d0] min-w-[538px] min-h-screen">
+<NavBar />
       <header className="absolute inset-x-0 top-0 z-50">
         <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
           <div className="fixed inset-0 z-50" />
@@ -104,13 +104,9 @@ function App() {
       </header>
 
       <div
-          className="relative isolate px-4 sm:px-6 pt-14 lg:px-8 bg-cover bg-center bg-no-repeat min-h-[40vh] sm:min-h-[60vh] lg:min-h-[80vh] w-full"
-          style={{ 
-            backgroundImage: "url('../../public/BackgroundHero.png')",
-            backgroundSize: "100% 100%",
-            backgroundRepeat: "no-repeat"
-          }}
-        >
+        className="relative isolate px-4 sm:px-6 pt-14 lg:px-8 bg-hero bg-cover bg-center bg-no-repeat min-h-[40vh] sm:min-h-[60vh] lg:min-h-[80vh] w-full"
+      >
+
 
         <div
           aria-hidden="true"
@@ -145,24 +141,25 @@ function App() {
           </div>
 
         </div>
-        <div className="flex justify-center gap-3 mb-16">
-        <div className="mt-6">
+        <div className="flex flex-col sm:mt-10 sm:flex-row sm:justify-center justify-center items-center gap-3 mb-16 w-full px-6">
+          <div className="mt-10 sm:-mt-30">
             <a
               href={"#"}
-              className="bg-[#EB8942] text-white font-bold px-6 py-3 rounded-full border-2 border-black shadow-md hover:bg-[#e6b722] transition"
+              className="bg-[#EB8942] text-white font-bold px-6 py-3 md:px-10 md:py-5 md:text-xl rounded-full border-2 border-black shadow-md hover:bg-[#e6b722] transition"
             >
               PODCASTS
             </a>
           </div>
-          <div className="mt-6">
+          <div className="mt-6 sm:-mt-30">
             <a
               href={"#"}
-              className="bg-[#FFC72C] text-black font-bold px-6 py-3 rounded-full border-2 border-black shadow-md hover:bg-[#e6b722] transition"
+              className="bg-[#FFC72C] text-black font-bold px-6 py-3 md:px-10 md:py-5 md:text-xl rounded-full border-2 border-black shadow-md hover:bg-[#e6b722] transition"
             >
               SEE MORE
             </a>
           </div>
         </div>
+
 
         <div
           aria-hidden="true"
@@ -178,9 +175,9 @@ function App() {
         </div>
       </div>
 
-      <div className="bg-[#EB8942] py-16">
+      <div className="bg-[#EB8942] py-16 border-b-5 border-t-5 border-black">
         <div className=" mx-auto max-w-2xl px-4 pb-16 sm:px-6 lg:max-w-7xl lg:px-8">
-          <h1 className="text-3xl font-bold text-center text-gray-900" style={{marginBottom: '5rem', fontFamily: "Jua, sans-serif"}}>Latest Podcasts</h1>
+          <h1 className="underline decoration-dashed text-[50rem] font-bold text-center text-black" style={{marginBottom: '5rem', fontFamily: "Jua, sans-serif", fontSize: '5rem'}}>Latest Podcasts</h1>
 
           {/* Grid Layout for Podcasts */}
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -225,6 +222,78 @@ function App() {
               </div>
             ))}
           </div>
+        </div>
+      </div>
+
+      
+      <div
+        className="relative isolate px-4 sm:px-6 pt-14 lg:px-8 bg-su bg-cover bg-center bg-no-repeat min-h-[40vh] sm:min-h-[60vh] lg:min-h-[80vh] w-full border-b-5 border-black"
+      >
+
+        <div
+          aria-hidden="true"
+          className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+        >
+          <div
+            style={{
+              clipPath:
+                'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
+            }}
+          />
+        </div>
+        <div className="mx-auto max-w-2xl py-48 sm:py-64 lg:py-72 max-h-2xl">
+          <div className="hidden sm:mb-8 sm:flex sm:justify-center">
+            <div className="relative rounded-full px-3 py-1 text-sm/6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+            &nbsp;
+            </div>
+          </div>
+          <div className="text-center flex flex-col items-center">
+            <h1 className="text-5xl font-semibold tracking-tight text-balance text-gray-900 sm:text-7xl min-h-[calc(1.25em)]">
+              &nbsp;
+            </h1>
+            <h1 className="text-5xl font-semibold tracking-tight text-balance text-gray-900 sm:text-7xl min-h-[calc(1.25em)]">
+              &nbsp;
+            </h1>
+            <div className="mt-4 flex items-center justify-center gap-x-6"> {/* Changed mt-10 to mt-4 */}
+            <a href="#" className="text-sm/6 font-semibold text-gray-900">
+              </a>
+              <a href="#" className="text-sm/6 font-semibold text-gray-900">
+              </a>
+            </div>
+          </div>
+
+        </div>
+        <div className="flex flex-col sm:mt-10 sm:flex-row sm:justify-center justify-center items-center gap-3 mb-16 w-full px-6">
+          <div className="-mt-35 sm:-mt-82 sm:-ml-70">
+          <a
+            href={"#"}
+            className="bg-[#EB8942] text-white font-bold px-6 py-3 md:px-10 md:py-5 md:text-xl rounded-full border-2 border-black shadow-md hover:bg-[#e6b722] transition"
+            >
+            PARENTS
+          </a>
+        </div>
+        <div className="-mt-27 sm:-mt-82">
+          <a
+            href={"#"}
+            className="bg-[#FFC72C] text-black font-bold px-6 py-3 md:px-10 md:py-5 md:text-xl rounded-full border-2 border-black shadow-md hover:bg-[#e6b722] transition"
+            >
+            TEACHERS
+          </a>
+        </div>
+      </div>
+
+
+        <div
+          aria-hidden="true"
+          className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
+        >
+          <div
+            style={{
+              clipPath:
+                'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
+            }}
+            className="relative left-[calc(50%+3rem)] aspect-1155/678 w-[36.125rem] -translate-x-1/2 bg-linear-to-tr from-[#ff80b5] to-[#1FA19C] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
+          />
         </div>
       </div>
 
