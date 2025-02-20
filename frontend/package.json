@@ -15,7 +15,7 @@
     "@coreui/icons-react": "^2.3.0",
     "@coreui/react": "^4.11.1",
     "@fontsource/jua": "^5.1.1",
-    "@headlessui/react": "^1.7.19",
+    "@headlessui/react": "^2.2.0",
     "@heroicons/react": "^2.1.1",
     "crypto-js": "^4.1.1",
     "react": "^18.2.0",

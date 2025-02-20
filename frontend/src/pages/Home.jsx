@@ -143,6 +143,8 @@ function Home() {
             <a
               href={"#"}
               className="bg-[#EB8942] text-white font-bold px-6 py-3 md:px-10 md:py-5 md:text-xl rounded-full border-2 border-black shadow-[8px_8px_0px_rgba(0,0,0,1)] hover:bg-[#1FA19C] transition"
+              style={{fontFamily: "Jua, sans-serif"}}
+
             >
               PODCASTS
             </a>
@@ -151,6 +153,8 @@ function Home() {
             <a
               href={"#"}
               className="bg-[#FFC72C] text-black font-bold px-6 py-3 md:px-10 md:py-5 md:text-xl rounded-full border-2 border-black shadow-[8px_8px_0px_rgba(0,0,0,1)] hover:bg-[#1FA19C] transition"
+              style={{fontFamily: "Jua, sans-serif"}}
+
             >
               SEE MORE
             </a>
@@ -210,6 +214,8 @@ function Home() {
                   <a
                     href={product.href}
                     className="bg-[#FFC72C] text-black font-bold px-6 py-3 rounded-full border-2 border-black shadow-md hover:bg-[#e6b722] transition"
+                    style={{fontFamily: "Jua, sans-serif"}}
+
                   >
                     SEE MORE
                   </a>
@@ -263,6 +269,8 @@ function Home() {
           <a
             href={"#"}
             className="bg-[#EB8942] text-white font-bold px-6 py-3 md:px-10 md:py-5 md:text-xl rounded-full border-2 border-black shadow-[8px_8px_0px_rgba(0,0,0,1)] hover:bg-[#FA5857] transition"
+            style={{fontFamily: "Jua, sans-serif"}}
+
             >
             PARENTS
           </a>
@@ -271,6 +279,8 @@ function Home() {
           <a
             href={"#"}
             className="bg-[#FFC72C] text-black font-bold px-6 py-3 md:px-10 md:py-5 md:text-xl rounded-full border-2 border-black shadow-[8px_8px_0px_rgba(0,0,0,1)] hover:bg-[#FA5857] transition"
+            style={{fontFamily: "Jua, sans-serif"}}
+
             >
             TEACHERS
           </a>
@@ -311,12 +321,14 @@ function Home() {
                 Join us as we dive into the stories of extraordinary children who are already leaving their mark on the world, whether they&apos;re budding entrepreneurs, elite athletes, or future leaders in their fields.
                 <br></br>
                 <br></br>
-Each episode features inspiring conversations with these talented kids, exploring their journeys, challenges, and the support that has helped them along the way. Whether you're a parent, a teacher, or a young achiever yourself, Young and Hungry is your go-to source for inspiration and encouragement.
+                Each episode features inspiring conversations with these talented kids, exploring their journeys, challenges, and the support that has helped them along the way. Whether you&apos;re a parent, a teacher, or a young achiever yourself, Young and Hungry is your go-to source for inspiration and encouragement.
                 </p>
                 <div className="flex justify-center items-center">
                 <a
                   href={"#"}
                   className="bg-[#EB8942] text-white font-bold px-6 py-3 md:px-10 md:py-5 md:text-xl rounded-full border-2 border-black shadow-[8px_8px_0px_rgba(0,0,0,1)] hover:text-black hover:bg-[#FFC72C] transition"
+                  style={{fontFamily: "Jua, sans-serif"}}
+
                   >
                   LEARN MORE
                 </a>
