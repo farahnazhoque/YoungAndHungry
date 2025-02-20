@@ -1,13 +1,15 @@
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Link } from 'react-router-dom';
 
 const navigation = [
-  { name: 'Home', href: '#', current: true },
-  { name: 'Podcast', href: '#', current: false },
-  { name: 'Newsletter', href: '#', current: false },
-  { name: 'Forum', href: '#', current: false },
-  { name: 'About', href: '#', current: false },
-]
+  { name: 'Home', to: '/home', current: false }, // Changed to /home path to match Home.jsx route
+  { name: 'Podcast', to: '/podcast', current: false },
+  { name: 'Newsletter', to: '/newsletter', current: false },
+  { name: 'Forum', to: '/forum', current: false },
+  { name: 'About', to: '/about', current: false },
+];
+
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -42,21 +44,20 @@ export default function Navbar() {
             <div className="hidden sm:ml-8 sm:block">
               <div className="flex space-x-6">
                 {navigation.map((item) => (
-                 <a
-                 key={item.name}
-                 href={item.href}
-                 aria-current={item.current ? 'page' : undefined}
-                 className="rounded-md px-4 py-3 text-2xl font-semibold"
-                 style={{
-                   backgroundColor: item.current ? "#EB8942" : "transparent",
-                   border: item.current ? "2px solid #372F35" : "none",
-                   color: item.current ? "white" : "#f7ceb1",
-                   fontFamily: "Jua, sans-serif"
-                 }}
-               >
-                 {item.name}
-               </a>
-               
+                  <Link
+                    key={item.name}
+                    to={item.to}
+                    aria-current={item.current ? 'page' : undefined}
+                    className="rounded-md px-4 py-3 text-2xl font-semibold"
+                    style={{
+                      backgroundColor: item.current ? "#EB8942" : "transparent",
+                      border: item.current ? "2px solid #372F35" : "none",
+                      color: item.current ? "white" : "#f7ceb1",
+                      fontFamily: "Jua, sans-serif"
+                    }}
+                  >
+                    {item.name}
+                  </Link>
                 ))}
               </div>
             </div>
@@ -115,11 +116,11 @@ export default function Navbar() {
       {/* Mobile Menu */}
       <DisclosurePanel className="sm:hidden">
         <div className="space-y-2 px-4 pb-4 pt-3">
-          {navigation.map((item) => (
+        {navigation.map((item) => (
             <DisclosureButton
               key={item.name}
-              as="a"
-              href={item.href}
+              as={Link}
+              to={item.to}
               aria-current={item.current ? 'page' : undefined}
               className={classNames(
                 item.current ? 'bg-[#EB8942] text-white' : 'text-[#f7ceb1] hover:bg-[#EB8942] hover:text-white',
@@ -129,8 +130,10 @@ export default function Navbar() {
               {item.name}
             </DisclosureButton>
           ))}
+
         </div>
       </DisclosurePanel>
     </Disclosure>
-  )
+  );
 }
+
