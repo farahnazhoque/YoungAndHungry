@@ -1,7 +1,8 @@
 import { Outlet } from 'react-router-dom';
 import Navbar from './Navbar';
+import { memo } from 'react';
 
-export default function Layout() {
+const Layout = memo(function Layout() {
   return (
     <div className="bg-[#f5e5d0] min-h-screen">
       <div className="sticky top-0 z-50">
@@ -12,4 +13,6 @@ export default function Layout() {
       </main>
     </div>
   );
-}
+});
+
+export default Layout;
