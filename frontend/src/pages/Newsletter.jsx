@@ -5,7 +5,7 @@ export default function Newsletter() {
   const [agreed, setAgreed] = useState(false)
 
   return (
-    <div className="isolate bg-[#f5e5d0] px-6 py-24 sm:py-32 lg:px-8">
+    <div className="flex flex-col bg-[#f5e5d0]">
       <div
         aria-hidden="true"
         className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]"
@@ -17,6 +17,14 @@ export default function Newsletter() {
           }}
           className="relative left-1/2 -z-10 aspect-1155/678 w-[36.125rem] max-w-none -translate-x-1/2 rotate-[30deg] sm:left-[calc(50%-40rem)] sm:w-[72.1875rem]"
         />
+      </div>
+      <div className="mx-auto max-w-6xl items-center justify-center text-center mt-16">
+        <h1
+          className="text-5xl underline decoration-dashed font-semibold tracking-tight text-black sm:text-5xl"
+          style={{ fontFamily: 'Jua, sans-serif', color: '#1FA19C' }}
+        >
+          Newsletter
+        </h1>
       </div>
       <div className="bg-white rounded-lg shadow-[8px_8px_0px_rgba(0,0,0,1)] border-4 border-black p-10 max-w-6xl mx-auto">
       <div className="mx-auto max-w-6xl text-center ">
