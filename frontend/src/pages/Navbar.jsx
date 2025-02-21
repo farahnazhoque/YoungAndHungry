@@ -1,6 +1,6 @@
 import { Disclosure, Menu} from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const navigation = [
   { name: 'Home', to: '/home', current: false }, // Changed to /home path to match Home.jsx route
@@ -16,6 +16,13 @@ function classNames(...classes) {
 }
 
 export default function Navbar() {
+  const location = useLocation();
+
+  const updatedNavigation = navigation.map(item => ({
+    ...item,
+    current: location.pathname === item.to
+  }));
+
   return (
     <Disclosure as="nav" style={{ backgroundColor: '#1FA19C', fontFamily: 'Jua, sans-serif', borderBottom: '5px solid #372F35',  }}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -43,7 +50,7 @@ export default function Navbar() {
             {/* Navigation Links */}
             <div className="hidden sm:ml-8 sm:block">
               <div className="flex space-x-6">
-                {navigation.map((item) => (
+                {updatedNavigation.map((item) => (
                   <Link
                     key={item.name}
                     to={item.to}
@@ -114,7 +121,7 @@ export default function Navbar() {
       {/* Mobile Menu */}
       <Disclosure.Panel className="sm:hidden">
         <div className="space-y-2 px-4 pb-4 pt-3">
-        {navigation.map((item) => (
+        {updatedNavigation.map((item) => (
             <Disclosure.Button
               key={item.name}
               as={Link}
@@ -134,4 +141,3 @@ export default function Navbar() {
     </Disclosure>
   );
 }
-
