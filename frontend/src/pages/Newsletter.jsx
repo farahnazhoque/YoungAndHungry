@@ -5,7 +5,7 @@ export default function Newsletter() {
   const [agreed, setAgreed] = useState(false)
 
   return (
-    <div className="flex flex-col bg-[#f5e5d0]">
+    <div className="flex flex-col bg-[#f5e5d0] min-h-screen relative pb-16">
       <div
         aria-hidden="true"
         className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]"
@@ -26,7 +26,7 @@ export default function Newsletter() {
           Newsletter
         </h1>
       </div>
-      <div className="bg-white rounded-lg shadow-[8px_8px_0px_rgba(0,0,0,1)] border-4 border-black p-10 max-w-6xl mx-auto">
+      <div className="bg-white rounded-lg shadow-[8px_8px_0px_rgba(0,0,0,1)] border-4 border-black p-10 max-w-6xl mx-auto my-8">
       <div className="mx-auto max-w-6xl text-center ">
         <h2 className="text-4xl font-semibold tracking-tight text-balance text-[#1FA19C] sm:text-5xl" style={{fontFamily: "Jua, sans-serif", color: "#1FA19C"}}>Join Our Newsletter!</h2>
         <p className="mt-2 text-lg/8 text-gray-600"style={{fontFamily: "Roboto, sans-serif"}}>Subscribe to our newsletter to receive updates on new episodes, community events, forum posts, & more!</p>
@@ -106,11 +106,11 @@ export default function Newsletter() {
         </div>
       </form>
       </div>
-      <footer className="bg-[#FFC72C] text-black py-4 text-center w-full absolute bottom-0 right-0 border-t-4 border-black ">
+      <footer className="bg-[#FFC72C] text-black py-4 text-center w-full absolute bottom-0 right-0 border-t-4 border-black">
           <p>
             &copy; 2025 Young and Hungry. All rights reserved.
           </p>
-        </footer>
+      </footer>
     </div>
     
   )

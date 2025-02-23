@@ -3,6 +3,7 @@ import Home from './Home';
 import Newsletter from './Newsletter';
 import Layout from './Layout';
 import About from './About';
+import Podcast from './Podcast';
 export default function App() {
   return (
     <Routes>
@@ -11,6 +12,7 @@ export default function App() {
         <Route path="/newsletter" element={<Newsletter />} />
         <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/podcast" element={<Podcast />} />
       </Route>
     </Routes>
   );
