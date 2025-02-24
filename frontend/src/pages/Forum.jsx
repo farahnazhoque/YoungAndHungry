@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-export default function Podcast() {
+export default function Forum() {
   const [isPlaying, setIsPlaying] = useState(false)
   const [progress, setProgress] = useState(33)
   const [currentEpisode, setCurrentEpisode] = useState({
@@ -74,60 +74,30 @@ export default function Podcast() {
       </div>
 
       <div className="bg-white rounded-lg shadow-[8px_8px_0px_rgba(0,0,0,1)] border-4 border-black p-6 max-w-6xl mx-auto my-8">
-        <div className="flex items-center gap-6">
-          {/* Episode Image */}
-          <div className="flex items-center gap-4">
-            <img 
-              src={currentEpisode.imageSrc}
-              alt={currentEpisode.imageAlt}
-              className="w-24 h-24 rounded-2xl border-3 border-black object-cover"
+        <div className="flex items-center gap-4">
+          <div className="relative flex-1">
+            <input
+              type="text"
+              placeholder="Search podcasts..."
+              className="w-full px-6 py-4 text-lg rounded-full border-2 border-black focus:outline-none focus:ring-2 focus:ring-[#1FA19C] focus:border-[#1FA19C]"
+              style={{fontFamily: "Roboto, sans-serif"}}
             />
-            {/* Play Button - Next to image */}
-            <a 
-              onClick={() => setIsPlaying(!isPlaying)}
-              className="bg-[#EB8942] hover:bg-[#d67832] transition rounded-full w-12 h-12 flex items-center justify-center border-2 border-black shadow-[4px_4px_0px_rgba(0,0,0,1)]"
+            <button 
+              className="absolute right-4 top-1/2 -translate-y-1/2 bg-[#EB8942] hover:bg-[#d67832] transition rounded-full w-12 h-12 flex items-center justify-center border-2 border-black shadow-[4px_4px_0px_rgba(0,0,0,1)]"
             >
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="white" className="w-6 h-6">
-                {isPlaying ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 5.25v13.5m-7.5-13.5v13.5" />
-                ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347c-.75.412-1.667-.13-1.667-.986V5.653Z" />
-                )}
+                <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
               </svg>
-            </a>
+            </button>
           </div>
           
-          <div className="flex-1">
-            {/* Episode Info */}
-            <div className="mb-4">
-              <h3 className="text-xl font-bold" style={{fontFamily: "Jua, sans-serif"}}>
-                {currentEpisode.title}
-              </h3>
-              <p className="text-gray-600 text-sm" style={{fontFamily: "Roboto, sans-serif"}}>
-                Uploaded {currentEpisode.date}
-              </p>
-            </div>
-
-            {/* Dynamic Waveform Progress Bar */}
-            <div className="relative w-full h-12 flex items-center">
-              <div className="w-full h-full flex items-center gap-1">
-                {[...Array(50)].map((_, i) => (
-                  <div 
-                    key={i}
-                    className={`w-2 rounded-full transition-all duration-150 ${i/50 * 100 <= progress ? 'bg-[#EB8942]' : 'bg-gray-200'}`}
-                    style={{
-                      height: `${Math.sin((i/50) * Math.PI) * 150}%`,
-                      minHeight: '6px'
-                    }}
-                  />
-                ))}
-              </div>
-              {/* Time Indicators */}
-              <div className="absolute -bottom-6 w-full flex justify-between text-sm text-gray-600" style={{fontFamily: "Roboto, sans-serif"}}>
-                <span>0:00</span>
-                <span>{currentEpisode.duration}</span>
-              </div>
-            </div>
+          <div className="flex gap-3">
+            <button className="px-6 py-4 rounded-full border-2 border-black bg-[#FDDC59] hover:bg-[#FFC72C] transition font-bold shadow-[4px_4px_0px_rgba(0,0,0,1)]" style={{fontFamily: "Jua, sans-serif"}}>
+              Filter
+            </button>
+            <button className="px-6 py-4 rounded-full border-2 border-black bg-[#FA5857] hover:bg-[#e94444] text-white transition font-bold shadow-[4px_4px_0px_rgba(0,0,0,1)]" style={{fontFamily: "Jua, sans-serif"}}>
+              Sort
+            </button>
           </div>
         </div>
       </div>
