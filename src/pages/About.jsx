@@ -85,7 +85,7 @@ export default function About() {
                   <a href={host.href} className={`bg-white border-4 border-black rounded-lg p-2 ${host.id === 2 ? 'mb-2' : 'mb-2'}`}>
                     <img
                       alt={host.imageAlt}
-                      src={`${import.meta.env.BASE_URL}${host.imageSrc}`}
+                      src={host.imageSrc}
                       className="w-40 h-40 object-cover rounded-lg"
                     />
                   </a>
