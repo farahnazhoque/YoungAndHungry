@@ -1,0 +1,33 @@
+@import '@coreui/coreui/dist/css/coreui.min.css';
+@import "tailwindcss";
+
+.bg-hero {
+    background-image: url('../../public/BackgroundHero.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    alt: "Young and Hungry: The Website. Welcome to Young and Hungry: The Website that hosts podcasts that shines a spotlight on the incredible achievements of young minds making a big impact!";
+}
+  
+  @media (max-width: 731px) {
+    .bg-hero {
+      background-image: url('../../public/BackHero700.png');
+    }
+  }
+
+  
+  .bg-su {
+    background-image: url('../../public/BackgroundSignUp.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    alt: "Sign Up to get the most out of: Young and Hungry";
+  }
+  
+  @media (max-width: 731px) {
+    .bg-su {
+      background-image: url('../../public/BackSU700.png');
+    }
+  }
+
+
+  
+  
