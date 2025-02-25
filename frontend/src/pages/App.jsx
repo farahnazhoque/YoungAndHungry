@@ -5,6 +5,8 @@ import Layout from './Layout';
 import About from './About';
 import Podcast from './Podcast';
 import Forum from './Forum';
+import Login from './Login';
+import SignUp from './SignUp';
 export default function App() {
   return (
     <Routes>
@@ -15,6 +17,8 @@ export default function App() {
         <Route path="/about" element={<About />} />
         <Route path="/podcast" element={<Podcast />} />
         <Route path="/forum" element={<Forum />}/>
+        <Route path="/login" element={<Login />}/>
+        <Route path="/signup" element={<SignUp />}/>
       </Route>
     </Routes>
   );

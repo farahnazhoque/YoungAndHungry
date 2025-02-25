@@ -12,40 +12,35 @@ const navigation = [
   { name: 'Company', href: '#' },
 ]
 
-const products = [
-  {
-    id: 1,
-    name: 'Earthen Bottle',
-    href: '#',
-    price: '$48',
-    imageSrc: 'https://tailwindui.com/plus-assets/img/ecommerce-images/category-page-04-image-card-01.jpg',
-    imageAlt: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
-  },
-  {
-    id: 2,
-    name: 'Nomad Tumbler',
-    href: '#',
-    price: '$35',
-    imageSrc: 'https://tailwindui.com/plus-assets/img/ecommerce-images/category-page-04-image-card-02.jpg',
-    imageAlt: 'Olive drab green insulated bottle with flared screw lid and flat top.',
-  },
-  {
-    id: 3,
-    name: 'Focus Paper Refill',
-    href: '#',
-    price: '$89',
-    imageSrc: 'https://tailwindui.com/plus-assets/img/ecommerce-images/category-page-04-image-card-03.jpg',
-    imageAlt: 'Person using a pen to cross a task off a productivity paper card.',
-  },
-  {
-    id: 4,
-    name: 'Machined Mechanical Pencil',
-    href: '#',
-    price: '$35',
-    imageSrc: 'https://tailwindui.com/plus-assets/img/ecommerce-images/category-page-04-image-card-04.jpg',
-    imageAlt: 'Hand holding black machined steel mechanical pencil with brass tip and top.',
-  },
-]
+const podcast = [
+    {
+      id: 1,
+      title: "Young Entrepreneur Special", 
+      description: "Meet 12-year-old Sarah who started her own successful baking business",
+      date: "March 15, 2024",
+      duration: "45 min",
+      imageSrc: "../../public/episodes1ph.png",
+      imageAlt: "Episode 1 cover"
+    },
+    {
+      id: 2,
+      title: "Sports Prodigy Interview",
+      description: "14-year-old Michael shares his journey to becoming a tennis champion", 
+      date: "March 8, 2024",
+      duration: "38 min",
+      imageSrc: "../../public/episode2ph.png",
+      imageAlt: "Episode 2 cover"
+    },
+    {
+      id: 3,
+      title: "Tech Whiz Kid",
+      description: "11-year-old Emma talks about creating her first mobile app",
+      date: "March 1, 2024",
+      duration: "42 min", 
+      imageSrc: "../../public/episode3ph.png",
+      imageAlt: "Episode 3 cover"
+    }
+  ]
 
 function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -140,24 +135,23 @@ function Home() {
         </div>
         <div className="flex flex-col sm:mt-10 sm:flex-row sm:justify-center justify-center items-center gap-3 mb-16 w-full px-6">
           <div className="mt-10 sm:-mt-30">
-            <a
-              href={"#"}
+            <Link
+              to="/podcast"
               className="bg-[#EB8942] text-white font-bold px-6 py-3 md:px-10 md:py-5 md:text-xl rounded-full border-2 border-black shadow-[8px_8px_0px_rgba(0,0,0,1)] hover:bg-[#1FA19C] transition"
               style={{fontFamily: "Jua, sans-serif"}}
-
             >
               PODCASTS
-            </a>
+            </Link>
           </div>
           <div className="mt-6 sm:-mt-30">
-            <a
-              href={"#"}
+            <Link
+              to="/newsletter"
               className="bg-[#FFC72C] text-black font-bold px-6 py-3 md:px-10 md:py-5 md:text-xl rounded-full border-2 border-black shadow-[8px_8px_0px_rgba(0,0,0,1)] hover:bg-[#1FA19C] transition"
               style={{fontFamily: "Jua, sans-serif"}}
 
             >
-              SEE MORE
-            </a>
+              NEWSLETTER
+            </Link>
           </div>
         </div>
 
@@ -176,53 +170,51 @@ function Home() {
         </div>
       </div>
 
-      <div className="bg-[#EB8942] py-16 border-b-5 border-t-5 border-black">
+      <div className="bg-[#EB8942] py-12 border-b-5 border-t-5 border-black">
         <div className=" mx-auto max-w-2xl px-4 pb-16 sm:px-6 lg:max-w-7xl lg:px-8">
           <h1 className="underline decoration-dashed text-[50rem] font-bold text-center text-black" style={{marginBottom: '5rem', fontFamily: "Jua, sans-serif", fontSize: '5rem'}}>Latest Podcasts</h1>
 
           {/* Grid Layout for Podcasts */}
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {products.map((product) => (
-              <div
-                key={product.id}
-                className=" mt-4 bg-white border-4 border-black rounded-xl p-6 text-center shadow-md hover:shadow-lg transition-transform transform hover:scale-105"
-              >
-                {/* Image with Border */}
-                <div className="flex justify-center -mt-16">
-                  <a href={product.href} className="bg-white border-4 border-black rounded-lg p-2">
-                    <img
-                      alt={product.imageAlt}
-                      src={product.imageSrc}
-                      className="w-40 h-40 object-cover rounded-lg"
-                    />
-                  </a>
-                </div>
-
-                {/* Podcast Title */}
-                <h3 className="mt-6 text-lg font-bold" style={{color: '#FA5857'}}>
-                  {product.name}
-                </h3>
-
-                {/* Podcast Description */}
-                <p className="text-gray-600 text-sm mt-2">
-                  Mindy and Guy Raz head to the community swimming pool to try out for his DREAM JOB! 
-                  There&apos;s just one problem; all the other applicants are SEA LIONS! Classic mix-up!
-                </p>
-
-                {/* "See More" Button */}
-                <div className="mt-6">
-                  <a
-                    href={product.href}
-                    className="bg-[#FFC72C] text-black font-bold px-6 py-3 rounded-full border-2 border-black shadow-md hover:bg-[#e6b722] transition"
-                    style={{fontFamily: "Jua, sans-serif"}}
-
-                  >
-                    SEE MORE
-                  </a>
-                </div>
+          <div className="mt-10 mb-16 mx-auto max-w-6xl grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        {podcast.map((episode) => (
+          <div
+            key={episode.id}
+            className="mt-4 gap-0.5 bg-white border-4 border-black rounded-xl p-6 text-center shadow-md hover:shadow-lg transition-transform transform hover:scale-105"
+          >
+            {/* Image with Border */}
+            <div className="flex justify-center -mt-16">
+              <div className="bg-white border-4 border-black rounded-2xl p-2 mb-2">
+                <img
+                  alt={episode.imageAlt}
+                  src={episode.imageSrc}
+                  className="w-40 h-40 object-cover rounded-lg"
+                />
               </div>
-            ))}
+            </div>
+
+            {/* Episode Title */}
+            <h3 className="mt-6 text-lg font-bold" style={{color: '#FA5857', fontFamily: "Jua, sans-serif"}}>
+              {episode.title}
+            </h3>
+
+            {/* Episode Description */}
+            <p className="text-gray-600 text-sm mt-2">
+              {episode.description}
+            </p>
+
+            {/* Play Button */}
+            <div className="mt-4">
+            <a
+            onClick={() => window.location.href = "/podcast"}
+            className="bg-[#FDDC59] text-black font-bold px-4 py-2 md:px-10 md:py-5 md:text-md rounded-full border-2 border-black shadow-[8px_8px_0px_rgba(0,0,0,1)] hover:text-black hover:bg-[#FFC72C] transition cursor-pointer"
+            style={{fontFamily: "Jua, sans-serif"}}
+            >
+            Listen Now
+            </a>
+            </div>
           </div>
+        ))}
+      </div>
         </div>
       </div>
 
@@ -266,25 +258,16 @@ function Home() {
         </div>
         <div className="flex flex-col sm:mt-10 sm:flex-row sm:justify-center justify-center items-center gap-3 mb-16 w-full px-6">
           <div className="-mt-15 sm:-mt-40 sm:-ml-70">
-          <a
-            href={"#"}
+          <Link
+            to="/signup"
             className="bg-[#EB8942] text-white font-bold px-6 py-3 md:px-10 md:py-5 md:text-xl rounded-full border-2 border-black shadow-[8px_8px_0px_rgba(0,0,0,1)] hover:bg-[#FA5857] transition"
             style={{fontFamily: "Jua, sans-serif"}}
 
             >
-            PARENTS
-          </a>
+            SIGN UP TODAY PARENTS AND TEACHERS!
+          </Link>
         </div>
-        <div className="-mt-27 sm:-mt-40">
-          <a
-            href={"#"}
-            className="bg-[#FFC72C] text-black font-bold px-6 py-3 md:px-10 md:py-5 md:text-xl rounded-full border-2 border-black shadow-[8px_8px_0px_rgba(0,0,0,1)] hover:bg-[#FA5857] transition"
-            style={{fontFamily: "Jua, sans-serif"}}
-
-            >
-            TEACHERS
-          </a>
-        </div>
+        
       </div>
 
 
@@ -324,14 +307,14 @@ function Home() {
                 Each episode features inspiring conversations with these talented kids, exploring their journeys, challenges, and the support that has helped them along the way. Whether you&apos;re a parent, a teacher, or a young achiever yourself, Young and Hungry is your go-to source for inspiration and encouragement.
                 </p>
                 <div className="flex justify-center items-center">
-                <a
-                  href={"#"}
+                <Link
+                  to="/about"
                   className="bg-[#EB8942] text-white font-bold px-6 py-3 md:px-10 md:py-5 md:text-xl rounded-full border-2 border-black shadow-[8px_8px_0px_rgba(0,0,0,1)] hover:text-black hover:bg-[#FFC72C] transition"
                   style={{fontFamily: "Jua, sans-serif"}}
 
                   >
                   LEARN MORE
-                </a>
+                </Link>
               </div>
               </div>
              

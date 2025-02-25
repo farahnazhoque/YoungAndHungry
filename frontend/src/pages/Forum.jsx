@@ -1,52 +1,101 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 export default function Forum() {
-  const [isPlaying, setIsPlaying] = useState(false)
-  const [progress, setProgress] = useState(33)
-  const [currentEpisode, setCurrentEpisode] = useState({
-    id: 1,
-    title: "Young Entrepreneur Special",
-    description: "Meet 12-year-old Sarah who started her own successful baking business",
-    date: "March 15, 2024",
-    duration: "45 min",
-    imageSrc: "../../public/episodes1ph.png",
-    imageAlt: "Episode 1 cover"
+  const [forums, setForums] = useState(() => {
+    const savedForums = localStorage.getItem('forums')
+    if (savedForums) {
+      return JSON.parse(savedForums)
+    }
+    return [
+      {
+        id: 1,
+        title: "Young Entrepreneur Special", 
+        description: "Meet 12-year-old Sarah who started her own successful baking business",
+        date: "March 15, 2024",
+        imageSrc: "../../public/episodes1ph.png",
+        imageAlt: "Episode 1 cover",
+        comments: [
+          {
+            id: 1,
+            text: "What inspired Sarah to start baking?",
+            author: "JohnDoe",
+            timestamp: new Date(2024, 2, 15, 10, 30).getTime()
+          }
+        ]
+      },
+      {
+        id: 2,
+        title: "Sports Prodigy Interview",
+        description: "14-year-old Michael shares his journey to becoming a tennis champion", 
+        date: "March 8, 2024",
+        imageSrc: "../../public/episode2ph.png",
+        imageAlt: "Episode 2 cover",
+        comments: [
+          {
+            id: 1,
+            text: "How many hours does Michael practice daily?",
+            author: "TennisLover",
+            timestamp: new Date(2024, 2, 8, 15, 45).getTime()
+          }
+        ]
+      },
+      {
+        id: 3,
+        title: "Tech Whiz Kid",
+        description: "11-year-old Emma talks about creating her first mobile app",
+        date: "March 1, 2024",
+        imageSrc: "../../public/episode3ph.png",
+        imageAlt: "Episode 3 cover",
+        comments: [
+          {
+            id: 1,
+            text: "What programming language did Emma use?",
+            author: "TechGuru",
+            timestamp: new Date(2024, 2, 1, 9, 15).getTime()
+          }
+        ]
+      }
+    ]
   })
 
-  const podcast = [
-    {
-      id: 1,
-      title: "Young Entrepreneur Special", 
-      description: "Meet 12-year-old Sarah who started her own successful baking business",
-      date: "March 15, 2024",
-      duration: "45 min",
-      imageSrc: "../../public/episodes1ph.png",
-      imageAlt: "Episode 1 cover"
-    },
-    {
-      id: 2,
-      title: "Sports Prodigy Interview",
-      description: "14-year-old Michael shares his journey to becoming a tennis champion", 
-      date: "March 8, 2024",
-      duration: "38 min",
-      imageSrc: "../../public/episode2ph.png",
-      imageAlt: "Episode 2 cover"
-    },
-    {
-      id: 3,
-      title: "Tech Whiz Kid",
-      description: "11-year-old Emma talks about creating her first mobile app",
-      date: "March 1, 2024",
-      duration: "42 min", 
-      imageSrc: "../../public/episode3ph.png",
-      imageAlt: "Episode 3 cover"
-    }
-  ]
+  const [searchQuery, setSearchQuery] = useState('')
+  const [filteredForums, setFilteredForums] = useState(forums)
+  const [selectedForum, setSelectedForum] = useState(null)
+  const [newComment, setNewComment] = useState('')
 
-  const handlePlayEpisode = (episode) => {
-    setCurrentEpisode(episode)
-    setIsPlaying(true)
-    setProgress(0)
+  useEffect(() => {
+    localStorage.setItem('forums', JSON.stringify(forums))
+  }, [forums])
+
+  const getTimeSinceLastComment = (comments) => {
+    if (!comments || comments.length === 0) return 'No comments yet'
+    const lastComment = comments.reduce((latest, current) => 
+      current.timestamp > latest.timestamp ? current : latest
+    )
+    const hours = Math.floor((Date.now() - lastComment.timestamp) / (1000 * 60 * 60))
+    return `${hours}h ago`
+  }
+
+  const handleAddComment = (forumId) => {
+    if (!newComment.trim()) return
+
+    const updatedForums = forums.map(forum => {
+      if (forum.id === forumId) {
+        return {
+          ...forum,
+          comments: [...forum.comments, {
+            id: forum.comments.length + 1,
+            text: newComment,
+            author: "CurrentUser", // In a real app, get from auth
+            timestamp: Date.now()
+          }]
+        }
+      }
+      return forum
+    })
+
+    setForums(updatedForums)
+    setNewComment('')
   }
 
   return (
@@ -68,19 +117,31 @@ export default function Forum() {
           className="text-5xl underline decoration-dashed font-semibold tracking-tight text-black sm:text-5xl"
           style={{ fontFamily: 'Jua, sans-serif', color: '#1FA19C' }}
         >
-          Podcasts
+          Discussion Forums
         </h1>
-        <p className="mt-2 text-lg/8 text-gray-600" style={{fontFamily: "Roboto, sans-serif"}}>Join Dr. Sean Young and his kids, Melody & Maverick, as they interview extraordinary young achievers!</p>
+        <p className="mt-2 text-lg/8 text-gray-600" style={{fontFamily: "Roboto, sans-serif"}}>Join the conversation about our amazing young achievers!</p>
       </div>
 
-      <div className="bg-white rounded-lg shadow-[8px_8px_0px_rgba(0,0,0,1)] border-4 border-black p-6 max-w-6xl mx-auto my-8">
+      <div className="bg-white rounded-ful shadow-[8px_8px_0px_rgba(0,0,0,1)] justify-center items-center border-4 border-black p-2 w-6xl my-6 mx-auto">
         <div className="flex items-center gap-4">
           <div className="relative flex-1">
             <input
               type="text"
-              placeholder="Search podcasts..."
-              className="w-full px-6 py-4 text-lg rounded-full border-2 border-black focus:outline-none focus:ring-2 focus:ring-[#1FA19C] focus:border-[#1FA19C]"
+              placeholder="Search forums..."
+              className="w-full px-6 py-4 text-lg rounded-lg border-2 border-black focus:outline-none focus:ring-2 focus:ring-[#1FA19C] focus:border-[#1FA19C]"
               style={{fontFamily: "Roboto, sans-serif"}}
+              onChange={(e) => {
+                const query = e.target.value.toLowerCase();
+                setSearchQuery(query);
+                const results = forums.filter(forum => {
+                  return (
+                    forum.title.toLowerCase().includes(query) ||
+                    forum.description.toLowerCase().includes(query)
+                  );
+                });
+                setFilteredForums(results);
+              }}
+              value={searchQuery}
             />
             <button 
               className="absolute right-4 top-1/2 -translate-y-1/2 bg-[#EB8942] hover:bg-[#d67832] transition rounded-full w-12 h-12 flex items-center justify-center border-2 border-black shadow-[4px_4px_0px_rgba(0,0,0,1)]"
@@ -90,58 +151,96 @@ export default function Forum() {
               </svg>
             </button>
           </div>
-          
-          <div className="flex gap-3">
-            <button className="px-6 py-4 rounded-full border-2 border-black bg-[#FDDC59] hover:bg-[#FFC72C] transition font-bold shadow-[4px_4px_0px_rgba(0,0,0,1)]" style={{fontFamily: "Jua, sans-serif"}}>
-              Filter
-            </button>
-            <button className="px-6 py-4 rounded-full border-2 border-black bg-[#FA5857] hover:bg-[#e94444] text-white transition font-bold shadow-[4px_4px_0px_rgba(0,0,0,1)]" style={{fontFamily: "Jua, sans-serif"}}>
-              Sort
-            </button>
-          </div>
         </div>
       </div>
 
       <div className="mt-10 mb-16 mx-auto max-w-6xl grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        {podcast.map((episode) => (
+        {filteredForums.map((forum) => (
           <div
-            key={episode.id}
-            className="mt-4 gap-0.5 bg-white border-4 border-black rounded-xl p-6 text-center shadow-md hover:shadow-lg transition-transform transform hover:scale-105"
+            key={forum.id}
+            className="mt-4 gap-0.5 bg-white border-4 border-black rounded-xl p-6 text-center shadow-md hover:shadow-lg transition-transform transform hover:scale-105 cursor-pointer"
+            onClick={() => setSelectedForum(forum)}
           >
-            {/* Image with Border */}
             <div className="flex justify-center -mt-16">
               <div className="bg-white border-4 border-black rounded-2xl p-2 mb-2">
                 <img
-                  alt={episode.imageAlt}
-                  src={episode.imageSrc}
+                  alt={forum.imageAlt}
+                  src={forum.imageSrc}
                   className="w-40 h-40 object-cover rounded-lg"
                 />
               </div>
             </div>
 
-            {/* Episode Title */}
             <h3 className="mt-6 text-lg font-bold" style={{color: '#FA5857', fontFamily: "Jua, sans-serif"}}>
-              {episode.title}
+              {forum.title}
             </h3>
 
-            {/* Episode Description */}
             <p className="text-gray-600 text-sm mt-2">
-              {episode.description}
+              {forum.description}
             </p>
 
-            {/* Play Button */}
-            <div className="mt-4">
-            <a
-            onClick={() => handlePlayEpisode(episode)}
-            className="bg-[#FDDC59] text-black font-bold px-4 py-2 md:px-10 md:py-5 md:text-md rounded-full border-2 border-black shadow-[8px_8px_0px_rgba(0,0,0,1)] hover:text-black hover:bg-[#FFC72C] transition cursor-pointer"
-            style={{fontFamily: "Jua, sans-serif"}}
-            >
-            Listen Now
-            </a>
+            <div className="mt-6 flex justify-center gap-6">
+              <div className="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 0 1 .865-.501 48.172 48.172 0 0 0 3.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z" />
+                </svg>
+                <span>{forum.comments.length}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                </svg>
+                <span>{getTimeSinceLastComment(forum.comments)}</span>
+              </div>
             </div>
           </div>
         ))}
       </div>
+
+      {selectedForum && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-xl p-6 max-w-2xl w-full max-h-[80vh] overflow-y-auto">
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-2xl font-bold" style={{fontFamily: "Jua, sans-serif"}}>{selectedForum.title}</h2>
+              <button onClick={() => setSelectedForum(null)} className="text-gray-500 hover:text-gray-700">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            
+            <div className="space-y-4 mb-6">
+              {selectedForum.comments.map(comment => (
+                <div key={comment.id} className="bg-gray-50 p-4 rounded-lg">
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="font-bold">{comment.author}</span>
+                    <span className="text-sm text-gray-500">
+                      {new Date(comment.timestamp).toLocaleDateString()}
+                    </span>
+                  </div>
+                  <p>{comment.text}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex gap-2">
+              <input
+                type="text"
+                value={newComment}
+                onChange={(e) => setNewComment(e.target.value)}
+                placeholder="Add a comment..."
+                className="flex-1 px-4 py-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-[#1FA19C]"
+              />
+              <button
+                onClick={() => handleAddComment(selectedForum.id)}
+                className="bg-[#1FA19C] text-white px-4 py-2 rounded-lg hover:bg-[#1a8a86] transition"
+              >
+                Post
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       <footer className="bg-[#FFC72C] text-black py-4 text-center w-full absolute bottom-0 right-0 border-t-4 border-black">
         <p>
