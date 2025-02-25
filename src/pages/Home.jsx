@@ -19,7 +19,7 @@ const podcast = [
       description: "Meet 12-year-old Sarah who started her own successful baking business",
       date: "March 15, 2024",
       duration: "45 min",
-      imageSrc: "../../public/episodes1ph.png",
+      imageSrc: `${import.meta.env.BASE_URL}episodes1ph.png`,
       imageAlt: "Episode 1 cover"
     },
     {
@@ -28,7 +28,7 @@ const podcast = [
       description: "14-year-old Michael shares his journey to becoming a tennis champion", 
       date: "March 8, 2024",
       duration: "38 min",
-      imageSrc: "../../public/episode2ph.png",
+      imageSrc: `${import.meta.env.BASE_URL}episode2ph.png`,
       imageAlt: "Episode 2 cover"
     },
     {
@@ -37,7 +37,7 @@ const podcast = [
       description: "11-year-old Emma talks about creating her first mobile app",
       date: "March 1, 2024",
       duration: "42 min", 
-      imageSrc: "../../public/episode3ph.png",
+      imageSrc: `${import.meta.env.BASE_URL}episode3ph.png`,
       imageAlt: "Episode 3 cover"
     }
   ]
@@ -204,13 +204,13 @@ function Home() {
 
             {/* Play Button */}
             <div className="mt-4">
-            <a
-            onClick={() => window.location.href = "/podcast"}
+            <Link
+            to="/podcast"
             className="bg-[#FDDC59] text-black font-bold px-4 py-2 md:px-10 md:py-5 md:text-md rounded-full border-2 border-black shadow-[8px_8px_0px_rgba(0,0,0,1)] hover:text-black hover:bg-[#FFC72C] transition cursor-pointer"
             style={{fontFamily: "Jua, sans-serif"}}
             >
             Listen Now
-            </a>
+            </Link>
             </div>
           </div>
         ))}

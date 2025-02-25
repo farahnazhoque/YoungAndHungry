@@ -6,7 +6,7 @@ const hosts = [
       name: 'Melody',
       href: '#',
       description: "Dr. Young's daughter and co-host. Melody is here to dive deep into stories that inspire and spark imagination!",
-      imageSrc: '../../public/MelodyPlaceholder.png',
+      imageSrc: `${import.meta.env.BASE_URL}MelodyPlaceholder.png`,
       imageAlt: 'Melody',
     },
     {
@@ -22,7 +22,7 @@ const hosts = [
       name: 'Maverick',
       href: '#',
       description: "Dr. Young's son and co-host. A future innovator in the making, Maverick's curiosity and energy are unmatched!",
-      imageSrc: '../../public/MaverickPlaceholder.png',
+      imageSrc: `${import.meta.env.BASE_URL}MaverickPlaceholder.png`,
       imageAlt: 'Maverick', 
     },
   ]
