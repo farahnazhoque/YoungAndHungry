@@ -164,7 +164,7 @@ export default function About() {
         <div className="flex items-center justify-center">
           {/* Placeholder for TikTok Icon */}
           <img
-            src={`${import.meta.env.BASE_URL}Tiktok.png`}
+            src={`${import.meta.env.BASE_URL}TikTok.png`}
             alt="TikTok"
             className="w-10 h-8 mr-3"
           />

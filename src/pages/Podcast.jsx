@@ -78,7 +78,7 @@ export default function Podcast() {
           {/* Episode Image */}
           <div className="flex items-center gap-4">
             <img 
-              src={`${import.meta.env.BASE_URL}${currentEpisode.imageSrc}`}
+              src={currentEpisode.imageSrc}
               alt={currentEpisode.imageAlt}
               className="w-24 h-24 rounded-2xl border-3 border-black object-cover"
             />
