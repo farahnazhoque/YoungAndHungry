@@ -57,7 +57,7 @@ function Home() {
                 <span className="sr-only">Your Company</span>
                 <img
                   alt=""
-                  src="https://tailwindui.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
+                  src={`${import.meta.env.BASE_URL}Logo.png`}
                   className="h-8 w-auto"
                 />
               </a>
@@ -186,7 +186,7 @@ function Home() {
               <div className="bg-white border-4 border-black rounded-2xl p-2 mb-2">
                 <img
                   alt={episode.imageAlt}
-                  src={episode.imageSrc}
+                  src={`${import.meta.env.BASE_URL}${episode.imageSrc}`}
                   className="w-40 h-40 object-cover rounded-lg"
                 />
               </div>
@@ -292,7 +292,7 @@ function Home() {
           {/* Grid Layout for Podcasts */}
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-2">
               <div className="flex justify-center items-center">
-              <img className="justify-center rounded-full w-96 h-96 animate-[spin_5s_linear_infinite]" src="../../public/LogoAbout.png" alt="Young and Hungry Logo"/>
+              <img className="justify-center rounded-full w-96 h-96 animate-[spin_5s_linear_infinite]" src={`${import.meta.env.BASE_URL}LogoAbout.png`} alt="Young and Hungry Logo"/>
 
               </div>
               <div className="bg-[#ABE8DD] rounded-lg shadow-[8px_8px_0px_rgba(0,0,0,1)] border-4 border-black p-8">

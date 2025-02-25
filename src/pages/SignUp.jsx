@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 
-export default function Newsletter() {
+export default function SignUp() {
   const [agreed, setAgreed] = useState(false)
 
   return (

@@ -46,7 +46,7 @@ export default function Navbar() {
                 <div className="flex shrink-0 items-center">
                   <img
                     alt="Young and Hungry"
-                    src="../../public/logo.png"
+                    src={`${import.meta.env.BASE_URL}Logo.png`}
                     className="h-18 w-auto"
                   />
                 </div>

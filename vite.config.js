@@ -6,4 +6,9 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   base: '/YoungAndHungry/',
+  build: {
+    outDir: 'dist',
+    assetsDir: 'assets',
+    copyPublicDir: true
+  }
 })

@@ -165,7 +165,7 @@ export default function Forum() {
               <div className="bg-white border-4 border-black rounded-2xl p-2 mb-2">
                 <img
                   alt={forum.imageAlt}
-                  src={forum.imageSrc}
+                  src={`${import.meta.env.BASE_URL}${forum.imageSrc}`}
                   className="w-40 h-40 object-cover rounded-lg"
                 />
               </div>

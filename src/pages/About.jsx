@@ -52,7 +52,7 @@ export default function About() {
         <h2 className="text-3xl font-bold mb-4 text-center col-span-2" style={{fontFamily: "Roboto, sans-serif", color: "#1FA19C"}}>How we started!</h2>
 
           <div className="flex justify-center items-center">
-            <img className="justify-center rounded-lg w-100 h-86" src="../../public/AboutUsPlaceholder.png" alt="Young and Hungry Logo"/>
+            <img className="justify-center rounded-lg w-100 h-86" src={`${import.meta.env.BASE_URL}AboutUsPlaceholder.png`} alt="Young and Hungry Logo"/>
           </div>
           <div>
             <p className="text-lg leading-relaxed">
@@ -85,7 +85,7 @@ export default function About() {
                   <a href={host.href} className={`bg-white border-4 border-black rounded-lg p-2 ${host.id === 2 ? 'mb-2' : 'mb-2'}`}>
                     <img
                       alt={host.imageAlt}
-                      src={host.imageSrc}
+                      src={`${import.meta.env.BASE_URL}${host.imageSrc}`}
                       className="w-40 h-40 object-cover rounded-lg"
                     />
                   </a>
@@ -138,7 +138,7 @@ export default function About() {
         <div className="flex items-center justify-center mb-4">
           {/* Mail Icon (Heroicons) */}
           <img
-            src="../../public/Email.png"
+            src={`${import.meta.env.BASE_URL}Email.png`}
             alt="Mail Icon"
             className="w-10 h-8 mr-3"
           />
@@ -151,7 +151,7 @@ export default function About() {
         <div className="flex items-center justify-center mb-4">
           {/* Placeholder for Instagram Icon */}
           <img
-            src="../../public/Instagram.png"
+            src={`${import.meta.env.BASE_URL}Instagram.png`}
             alt="Instagram"
             className="w-10 h-8 mr-3"
           />
@@ -164,7 +164,7 @@ export default function About() {
         <div className="flex items-center justify-center">
           {/* Placeholder for TikTok Icon */}
           <img
-            src="../../public/Tiktok.png"
+            src={`${import.meta.env.BASE_URL}Tiktok.png`}
             alt="TikTok"
             className="w-10 h-8 mr-3"
           />
