@@ -261,7 +261,7 @@ function Home() {
           <div className="-mt-15 sm:-mt-40 sm:-ml-70">
           <Link
             to="/signup"
-            className="bg-[#EB8942] text-white font-bold px-6 py-3 md:px-10 md:py-5 md:text-xl rounded-full border-2 border-black shadow-[8px_8px_0px_rgba(0,0,0,1)] hover:bg-[#FA5857] transition"
+            className="block w-full sm:w-auto text-center bg-[#EB8942] text-white font-bold px-4 py-2 sm:px-6 sm:py-3 md:px-10 md:py-5 text-sm sm:text-base md:text-xl rounded-full border-2 border-black shadow-[8px_8px_0px_rgba(0,0,0,1)] hover:bg-[#FA5857] transition whitespace-normal sm:whitespace-nowrap"
             style={{fontFamily: "Jua, sans-serif"}}
 
             >

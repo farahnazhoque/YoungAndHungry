@@ -101,10 +101,17 @@ export default function Navbar() {
                   as={Link}
                   to={item.to}
                   aria-current={item.current ? 'page' : undefined}
-                  className={classNames(
-                    item.current ? 'bg-[#EB8942] text-white' : 'text-[#f7ceb1] hover:bg-[#EB8942] hover:text-white',
-                    'block rounded-full px-3 py-2 text-base font-semibold w-full text-center'
-                  )}
+                  style={{
+                    backgroundColor: item.current ? "#EB8942" : "transparent",
+                    color: item.current ? "white" : "#f7ceb1",
+                    display: "block",
+                    width: "100%",
+                    padding: "0.5rem 0.75rem",
+                    textAlign: "center",
+                    fontWeight: "600",
+                    borderRadius: "9999px",
+                  }}
+                  className="hover:bg-[#EB8942] hover:text-white text-base"
                 >
                   {item.name}
                 </Disclosure.Button>
