@@ -50,7 +50,7 @@ export default function Podcast() {
   }
 
   return (
-    <div className="flex flex-col bg-[#f5e5d0] min-h-screen relative pb-16">
+    <div className="flex flex-col bg-[#f5e5d0] min-h-screen relative pb-16 px-4 sm:px-6">
       <div
         aria-hidden="true"
         className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]"
@@ -63,31 +63,30 @@ export default function Podcast() {
           className="relative left-1/2 -z-10 aspect-1155/678 w-[36.125rem] max-w-none -translate-x-1/2 rotate-[30deg] sm:left-[calc(50%-40rem)] sm:w-[72.1875rem]"
         />
       </div>
-      <div className="mx-auto max-w-6xl items-center justify-center text-center mt-16">
+      <div className="mx-auto w-full max-w-6xl items-center justify-center text-center mt-8 sm:mt-16">
         <h1
-          className="text-5xl underline decoration-dashed font-semibold tracking-tight text-black sm:text-5xl"
+          className="text-3xl sm:text-5xl underline decoration-dashed font-semibold tracking-tight text-black"
           style={{ fontFamily: 'Jua, sans-serif', color: '#1FA19C' }}
         >
           Podcasts
         </h1>
-        <p className="mt-2 text-lg/8 text-gray-600" style={{fontFamily: "Roboto, sans-serif"}}>Join Dr. Sean Young and his kids, Melody & Maverick, as they interview extraordinary young achievers!</p>
+        <p className="mt-2 text-base sm:text-lg/8 text-gray-600 px-4" style={{fontFamily: "Roboto, sans-serif"}}>Join Dr. Sean Young and his kids, Melody & Maverick, as they interview extraordinary young achievers!</p>
       </div>
 
-      <div className="bg-white rounded-lg shadow-[8px_8px_0px_rgba(0,0,0,1)] border-4 border-black p-6 max-w-6xl mx-auto my-8">
-        <div className="flex items-center gap-6">
-          {/* Episode Image */}
-          <div className="flex items-center gap-4">
+      <div className="bg-white rounded-lg shadow-[8px_8px_0px_rgba(0,0,0,1)] border-4 border-black p-4 sm:p-6 max-w-6xl mx-auto my-6 sm:my-8">
+        <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
+          {/* Episode Image and Play Button */}
+          <div className="flex items-center gap-4 w-full sm:w-auto">
             <img 
               src={currentEpisode.imageSrc}
               alt={currentEpisode.imageAlt}
-              className="w-24 h-24 rounded-2xl border-3 border-black object-cover"
+              className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl border-3 border-black object-cover"
             />
-            {/* Play Button - Next to image */}
             <a 
               onClick={() => setIsPlaying(!isPlaying)}
-              className="bg-[#EB8942] hover:bg-[#d67832] transition rounded-full w-12 h-12 flex items-center justify-center border-2 border-black shadow-[4px_4px_0px_rgba(0,0,0,1)]"
+              className="bg-[#EB8942] hover:bg-[#d67832] transition rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center border-2 border-black shadow-[4px_4px_0px_rgba(0,0,0,1)]"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="white" className="w-6 h-6">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="white" className="w-5 h-5 sm:w-6 sm:h-6">
                 {isPlaying ? (
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 5.25v13.5m-7.5-13.5v13.5" />
                 ) : (
@@ -97,33 +96,33 @@ export default function Podcast() {
             </a>
           </div>
           
-          <div className="flex-1">
+          <div className="flex-1 w-full">
             {/* Episode Info */}
-            <div className="mb-4">
-              <h3 className="text-xl font-bold" style={{fontFamily: "Jua, sans-serif"}}>
+            <div className="mb-4 text-center sm:text-left">
+              <h3 className="text-lg sm:text-xl font-bold" style={{fontFamily: "Jua, sans-serif"}}>
                 {currentEpisode.title}
               </h3>
-              <p className="text-gray-600 text-sm" style={{fontFamily: "Roboto, sans-serif"}}>
+              <p className="text-gray-600 text-xs sm:text-sm" style={{fontFamily: "Roboto, sans-serif"}}>
                 Uploaded {currentEpisode.date}
               </p>
             </div>
 
             {/* Dynamic Waveform Progress Bar */}
-            <div className="relative w-full h-12 flex items-center">
-              <div className="w-full h-full flex items-center gap-1">
+            <div className="relative w-full h-10 sm:h-12 flex items-center">
+              <div className="w-full h-full flex items-center gap-0.5 sm:gap-1">
                 {[...Array(50)].map((_, i) => (
                   <div 
                     key={i}
-                    className={`w-2 rounded-full transition-all duration-150 ${i/50 * 100 <= progress ? 'bg-[#EB8942]' : 'bg-gray-200'}`}
+                    className={`w-1 sm:w-2 rounded-full transition-all duration-150 ${i/50 * 100 <= progress ? 'bg-[#EB8942]' : 'bg-gray-200'}`}
                     style={{
                       height: `${Math.sin((i/50) * Math.PI) * 150}%`,
-                      minHeight: '6px'
+                      minHeight: '4px sm:6px'
                     }}
                   />
                 ))}
               </div>
               {/* Time Indicators */}
-              <div className="absolute -bottom-6 w-full flex justify-between text-sm text-gray-600" style={{fontFamily: "Roboto, sans-serif"}}>
+              <div className="absolute -bottom-6 w-full flex justify-between text-xs sm:text-sm text-gray-600" style={{fontFamily: "Roboto, sans-serif"}}>
                 <span>0:00</span>
                 <span>{currentEpisode.duration}</span>
               </div>
@@ -132,11 +131,11 @@ export default function Podcast() {
         </div>
       </div>
 
-      <div className="mt-10 mb-16 mx-auto max-w-6xl grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-8 sm:mt-10 mb-16 mx-auto max-w-6xl grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {podcast.map((episode) => (
           <div
             key={episode.id}
-            className="mt-4 gap-0.5 bg-white border-4 border-black rounded-xl p-6 text-center shadow-md hover:shadow-lg transition-transform transform hover:scale-105"
+            className="mt-12 sm:mt-4 gap-0.5 bg-white border-4 border-black rounded-xl p-4 sm:p-6 text-center shadow-md hover:shadow-lg transition-transform transform hover:scale-105"
           >
             {/* Image with Border */}
             <div className="flex justify-center -mt-16">
@@ -144,30 +143,30 @@ export default function Podcast() {
                 <img
                   alt={episode.imageAlt}
                   src={episode.imageSrc}
-                  className="w-40 h-40 object-cover rounded-lg"
+                  className="w-32 h-32 sm:w-40 sm:h-40 object-cover rounded-lg"
                 />
               </div>
             </div>
 
             {/* Episode Title */}
-            <h3 className="mt-6 text-lg font-bold" style={{color: '#FA5857', fontFamily: "Jua, sans-serif"}}>
+            <h3 className="mt-4 sm:mt-6 text-base sm:text-lg font-bold" style={{color: '#FA5857', fontFamily: "Jua, sans-serif"}}>
               {episode.title}
             </h3>
 
             {/* Episode Description */}
-            <p className="text-gray-600 text-sm mt-2">
+            <p className="text-gray-600 text-xs sm:text-sm mt-2">
               {episode.description}
             </p>
 
             {/* Play Button */}
             <div className="mt-4">
-            <a
-            onClick={() => handlePlayEpisode(episode)}
-            className="bg-[#FDDC59] text-black font-bold px-4 py-2 md:px-10 md:py-5 md:text-md rounded-full border-2 border-black shadow-[8px_8px_0px_rgba(0,0,0,1)] hover:text-black hover:bg-[#FFC72C] transition cursor-pointer"
-            style={{fontFamily: "Jua, sans-serif"}}
-            >
-            Listen Now
-            </a>
+              <a
+                onClick={() => handlePlayEpisode(episode)}
+                className="bg-[#FDDC59] text-black font-bold px-3 py-2 sm:px-10 sm:py-5 text-sm sm:text-md rounded-full border-2 border-black shadow-[8px_8px_0px_rgba(0,0,0,1)] hover:text-black hover:bg-[#FFC72C] transition cursor-pointer inline-block"
+                style={{fontFamily: "Jua, sans-serif"}}
+              >
+                Listen Now
+              </a>
             </div>
           </div>
         ))}
