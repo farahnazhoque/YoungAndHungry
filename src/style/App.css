@@ -14,6 +14,11 @@
     }
   }
 
+  @media (max-width: 400px) {
+    .bg-hero {
+      background-image: url('../../public/BackHero400.png');
+    }
+  }
   
   .bg-su {
     background-image: url('../../public/BackgroundSignUp.png');
@@ -28,6 +33,8 @@
     }
   }
 
-
-  
-  
+  @media (max-width: 400px) {
+    .bg-su {
+      background-image: url('../../public/BackSU400.png');
+    }
+  }

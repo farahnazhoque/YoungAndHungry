@@ -98,6 +98,7 @@ function Home() {
       </header>
 
       <div
+      
         className="relative isolate px-4 sm:px-6 pt-14 lg:px-8 bg-hero bg-cover bg-center bg-no-repeat min-h-[40vh] sm:min-h-[60vh] lg:min-h-[80vh] w-full"
       >
         <div
