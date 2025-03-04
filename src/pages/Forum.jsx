@@ -112,23 +112,23 @@ export default function Forum() {
           className="relative left-1/2 -z-10 aspect-1155/678 w-[36.125rem] max-w-none -translate-x-1/2 rotate-[30deg] sm:left-[calc(50%-40rem)] sm:w-[72.1875rem]"
         />
       </div>
-      <div className="mx-auto max-w-6xl items-center justify-center text-center mt-16">
+      <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 items-center justify-center text-center mt-8 sm:mt-16">
         <h1
-          className="text-5xl underline decoration-dashed font-semibold tracking-tight text-black sm:text-5xl"
+          className="text-3xl sm:text-5xl underline decoration-dashed font-semibold tracking-tight text-black"
           style={{ fontFamily: 'Jua, sans-serif', color: '#1FA19C' }}
         >
           Discussion Forums
         </h1>
-        <p className="mt-2 text-lg/8 text-gray-600" style={{fontFamily: "Roboto, sans-serif"}}>Join the conversation about our amazing young achievers!</p>
+        <p className="mt-2 text-base sm:text-lg/8 text-gray-600" style={{fontFamily: "Roboto, sans-serif"}}>Join the conversation about our amazing young achievers!</p>
       </div>
 
-      <div className="bg-white rounded-ful shadow-[8px_8px_0px_rgba(0,0,0,1)] justify-center items-center border-4 border-black p-2 w-6xl my-6 mx-auto">
+      <div className="bg-white rounded-ful shadow-[8px_8px_0px_rgba(0,0,0,1)] justify-center items-center border-4 border-black p-2 mx-4 sm:mx-auto my-6 max-w-6xl">
         <div className="flex items-center gap-4">
           <div className="relative flex-1">
             <input
               type="text"
               placeholder="Search forums..."
-              className="w-full px-6 py-4 text-lg rounded-lg border-2 border-black focus:outline-none focus:ring-2 focus:ring-[#1FA19C] focus:border-[#1FA19C]"
+              className="w-full px-4 sm:px-6 py-3 sm:py-4 text-base sm:text-lg rounded-lg border-2 border-black focus:outline-none focus:ring-2 focus:ring-[#1FA19C] focus:border-[#1FA19C]"
               style={{fontFamily: "Roboto, sans-serif"}}
               onChange={(e) => {
                 const query = e.target.value.toLowerCase();
@@ -144,9 +144,9 @@ export default function Forum() {
               value={searchQuery}
             />
             <button 
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-[#EB8942] hover:bg-[#d67832] transition rounded-full w-12 h-12 flex items-center justify-center border-2 border-black shadow-[4px_4px_0px_rgba(0,0,0,1)]"
+              className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-[#EB8942] hover:bg-[#d67832] transition rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center border-2 border-black shadow-[4px_4px_0px_rgba(0,0,0,1)]"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="white" className="w-6 h-6">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="white" className="w-5 h-5 sm:w-6 sm:h-6">
                 <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
               </svg>
             </button>
@@ -154,43 +154,43 @@ export default function Forum() {
         </div>
       </div>
 
-      <div className="mt-10 mb-16 mx-auto max-w-6xl grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-6 sm:mt-10 mb-16 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 grid grid-cols-1 gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {filteredForums.map((forum) => (
           <div
             key={forum.id}
-            className="mt-4 gap-0.5 bg-white border-4 border-black rounded-xl p-6 text-center shadow-md hover:shadow-lg transition-transform transform hover:scale-105 cursor-pointer"
+            className="mt-4 gap-0.5 bg-white border-4 border-black rounded-xl p-4 sm:p-6 text-center shadow-md hover:shadow-lg transition-transform transform hover:scale-105 cursor-pointer"
             onClick={() => setSelectedForum(forum)}
           >
-            <div className="flex justify-center -mt-16">
+            <div className="flex justify-center -mt-12 sm:-mt-16">
               <div className="bg-white border-4 border-black rounded-2xl p-2 mb-2">
                 <img
                   alt={forum.imageAlt}
                   src={forum.imageSrc}
-                  className="w-40 h-40 object-cover rounded-lg"
+                  className="w-32 h-32 sm:w-40 sm:h-40 object-cover rounded-lg"
                 />
               </div>
             </div>
 
-            <h3 className="mt-6 text-lg font-bold" style={{color: '#FA5857', fontFamily: "Jua, sans-serif"}}>
+            <h3 className="mt-4 sm:mt-6 text-base sm:text-lg font-bold" style={{color: '#FA5857', fontFamily: "Jua, sans-serif"}}>
               {forum.title}
             </h3>
 
-            <p className="text-gray-600 text-sm mt-2">
+            <p className="text-gray-600 text-xs sm:text-sm mt-2">
               {forum.description}
             </p>
 
-            <div className="mt-6 flex justify-center gap-6">
-              <div className="flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+            <div className="mt-4 sm:mt-6 flex justify-center gap-4 sm:gap-6">
+              <div className="flex items-center gap-1 sm:gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 sm:w-6 sm:h-6">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 0 1 .865-.501 48.172 48.172 0 0 0 3.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z" />
                 </svg>
-                <span>{forum.comments.length}</span>
+                <span className="text-sm sm:text-base">{forum.comments.length}</span>
               </div>
-              <div className="flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+              <div className="flex items-center gap-1 sm:gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 sm:w-6 sm:h-6">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                 </svg>
-                <span>{getTimeSinceLastComment(forum.comments)}</span>
+                <span className="text-sm sm:text-base">{getTimeSinceLastComment(forum.comments)}</span>
               </div>
             </div>
           </div>
@@ -199,26 +199,26 @@ export default function Forum() {
 
       {selectedForum && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-xl p-6 max-w-2xl w-full max-h-[80vh] overflow-y-auto">
+          <div className="bg-white rounded-xl p-4 sm:p-6 w-full max-w-2xl max-h-[90vh] sm:max-h-[80vh] overflow-y-auto">
             <div className="flex justify-between items-center mb-4">
-              <h2 className="text-2xl font-bold" style={{fontFamily: "Jua, sans-serif"}}>{selectedForum.title}</h2>
+              <h2 className="text-xl sm:text-2xl font-bold" style={{fontFamily: "Jua, sans-serif"}}>{selectedForum.title}</h2>
               <button onClick={() => setSelectedForum(null)} className="text-gray-500 hover:text-gray-700">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 sm:h-6 sm:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
             </div>
             
-            <div className="space-y-4 mb-6">
+            <div className="space-y-3 sm:space-y-4 mb-4 sm:mb-6">
               {selectedForum.comments.map(comment => (
-                <div key={comment.id} className="bg-gray-50 p-4 rounded-lg">
+                <div key={comment.id} className="bg-gray-50 p-3 sm:p-4 rounded-lg">
                   <div className="flex justify-between items-center mb-2">
-                    <span className="font-bold">{comment.author}</span>
-                    <span className="text-sm text-gray-500">
+                    <span className="font-bold text-sm sm:text-base">{comment.author}</span>
+                    <span className="text-xs sm:text-sm text-gray-500">
                       {new Date(comment.timestamp).toLocaleDateString()}
                     </span>
                   </div>
-                  <p>{comment.text}</p>
+                  <p className="text-sm sm:text-base">{comment.text}</p>
                 </div>
               ))}
             </div>
@@ -229,11 +229,11 @@ export default function Forum() {
                 value={newComment}
                 onChange={(e) => setNewComment(e.target.value)}
                 placeholder="Add a comment..."
-                className="flex-1 px-4 py-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-[#1FA19C]"
+                className="flex-1 px-3 sm:px-4 py-2 text-sm sm:text-base border-2 border-gray-300 rounded-lg focus:outline-none focus:border-[#1FA19C]"
               />
               <button
                 onClick={() => handleAddComment(selectedForum.id)}
-                className="bg-[#1FA19C] text-white px-4 py-2 rounded-lg hover:bg-[#1a8a86] transition"
+                className="bg-[#1FA19C] text-white px-3 sm:px-4 py-2 text-sm sm:text-base rounded-lg hover:bg-[#1a8a86] transition"
               >
                 Post
               </button>
