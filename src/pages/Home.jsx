@@ -46,7 +46,7 @@ function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-<div className="bg-[#f5e5d0] min-w-[538px] min-h-screen">
+<div className="bg-[#f5e5d0] justify-center min-w-[400px] min-h-screen overflow-x-hidden">
   
       <header className="absolute inset-x-0 top-0 z-50">
         <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
@@ -98,7 +98,7 @@ function Home() {
       </header>
 
       <div
-      
+
         className="relative isolate px-4 sm:px-6 pt-14 lg:px-8 bg-hero bg-cover bg-center bg-no-repeat min-h-[40vh] sm:min-h-[60vh] lg:min-h-[80vh] w-full"
       >
         <div
