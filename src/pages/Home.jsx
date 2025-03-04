@@ -173,7 +173,7 @@ function Home() {
 
       <div className="bg-[#EB8942] py-12 border-b-5 border-t-5 border-black">
         <div className=" mx-auto max-w-2xl px-4 pb-16 sm:px-6 lg:max-w-7xl lg:px-8">
-          <h1 className="underline decoration-dashed text-[50rem] font-bold text-center text-black" style={{marginBottom: '5rem', fontFamily: "Jua, sans-serif", fontSize: '5rem'}}>Latest Podcasts</h1>
+          <h1 className="underline decoration-dashed text-[50rem] font-bold text-center text-black" style={{marginBottom: '5rem', fontFamily: "Jua, sans-serif", fontSize: '3rem'}}>Latest Podcasts</h1>
 
           {/* Grid Layout for Podcasts */}
           <div className="mt-10 mb-16 mx-auto max-w-6xl grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -288,7 +288,7 @@ function Home() {
 
       <div className="bg-[#EB8942] py-16 border-b-5 border-black">
         <div className=" mx-auto max-w-2xl px-4 pb-16 sm:px-6 lg:max-w-7xl lg:px-8">
-          <h1 className="underline decoration-dashed text-[50rem] font-bold text-center text-black" style={{marginBottom: '5rem', fontFamily: "Jua, sans-serif", fontSize: '5rem'}}>About Us</h1>
+          <h1 className="underline decoration-dashed text-[50rem] font-bold text-center text-black" style={{marginBottom: '5rem', fontFamily: "Jua, sans-serif", fontSize: '3rem'}}>About Us</h1>
 
           {/* Grid Layout for Podcasts */}
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-2">
@@ -322,11 +322,6 @@ function Home() {
               </div>
             </div>    
           </div>
-        <footer className="bg-[#FFC72C] text-black py-4 text-center">
-          <p>
-            &copy; 2025 Young and Hungry. All rights reserved.
-          </p>
-        </footer>
   </div>
 
   )

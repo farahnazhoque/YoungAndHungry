@@ -15,7 +15,7 @@ const Layout = memo(function Layout() {
           </div>
         </div>
       </main>
-      <footer className="bg-[#FFC72C] text-black py-4 text-center w-full absolute bottom-0 right-0 border-t-4 border-black">
+      <footer className="bg-[#FFC72C] text-black py-4 text-center w-full mt-auto border-t-4 border-black">
           <p>
             &copy; 2025 Young and Hungry. All rights reserved.
           </p>

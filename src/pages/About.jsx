@@ -173,9 +173,6 @@ export default function About() {
           </a>
         </div>
       </div>
-      <footer className="mt-auto bg-[#FFC72C] text-black py-4 text-center border-t-4 border-black">
-        <p>&copy; 2025 Young and Hungry. All rights reserved.</p>
-      </footer>
     </div>
   )
 }
