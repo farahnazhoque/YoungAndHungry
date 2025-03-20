@@ -146,12 +146,12 @@ function Home() {
           </div>
           <div className="mt-6 sm:-mt-30">
             <Link
-              to="/newsletter"
+              to="/forum"
               className="bg-[#FFC72C] text-black font-bold px-6 py-3 md:px-10 md:py-5 md:text-xl rounded-full border-2 border-black shadow-[8px_8px_0px_rgba(0,0,0,1)] hover:bg-[#1FA19C] transition"
               style={{fontFamily: "Jua, sans-serif"}}
 
             >
-              NEWSLETTER
+              FORUM
             </Link>
           </div>
         </div>
