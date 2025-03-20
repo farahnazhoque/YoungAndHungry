@@ -67,7 +67,7 @@ export default function Chatbot() {
   };
 
   return (
-    <div className="fixed bottom-4 right-4 z-50">
+    <div className="fixed bottom-4 right-4 z-50 sm:mb-0 mb-16">
       {/* Chat Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
