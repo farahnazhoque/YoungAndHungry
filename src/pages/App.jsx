@@ -7,6 +7,7 @@ import Podcast from './Podcast';
 import Forum from './Forum';
 import Login from './Login';
 import SignUp from './SignUp';
+import Chatbot from './Chatbot';
 export default function App() {
   return (
     <Routes>
@@ -19,6 +20,7 @@ export default function App() {
         <Route path="/forum" element={<Forum />}/>
         <Route path="/login" element={<Login />}/>
         <Route path="/signup" element={<SignUp />}/>
+        <Route path="/chat" element={<Chatbot />} />
       </Route>
     </Routes>
   );

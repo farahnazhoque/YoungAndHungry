@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import Navbar from './Navbar';
 import { memo } from 'react';
-
+import Chatbot from './Chatbot';
 const Layout = memo(function Layout() {
   return (
     <div className="bg-[#f5e5d0] min-w-[400px] flex flex-col items-center min-h-screen">
@@ -15,6 +15,8 @@ const Layout = memo(function Layout() {
           </div>
         </div>
       </main>
+      <Chatbot />
+
       <footer className="bg-[#FFC72C] text-black py-4 text-center w-full mt-auto border-t-4 border-black">
           <p>
             &copy; 2025 Young and Hungry. All rights reserved.
