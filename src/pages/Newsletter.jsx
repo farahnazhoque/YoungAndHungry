@@ -1,8 +1,23 @@
 import { useState } from 'react'
 
-
 export default function Newsletter() {
   const [agreed, setAgreed] = useState(false)
+  const [submitted, setSubmitted] = useState(false)
+
+  if (submitted) {
+    return (
+      <div className="flex flex-col bg-[#f5e5d0] min-h-screen relative pb-16 items-center justify-center">
+        <div className="bg-white rounded-lg shadow-[8px_8px_0px_rgba(0,0,0,1)] border-4 border-black p-10 max-w-6xl mx-auto my-8 text-center">
+          <h2 className="text-4xl font-semibold tracking-tight text-[#1FA19C]" style={{fontFamily: "Jua, sans-serif"}}>
+            Thank you for subscribing!
+          </h2>
+          <p className="mt-4 text-lg text-gray-600" style={{fontFamily: "Roboto, sans-serif"}}>
+            You'll receive our latest updates in your inbox.
+          </p>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="flex flex-col bg-[#f5e5d0] min-h-screen relative pb-16">
@@ -31,7 +46,10 @@ export default function Newsletter() {
         <h2 className="text-4xl font-semibold tracking-tight text-balance text-[#1FA19C] sm:text-5xl" style={{fontFamily: "Jua, sans-serif", color: "#1FA19C"}}>Join Our Newsletter!</h2>
         <p className="mt-2 text-lg/8 text-gray-600"style={{fontFamily: "Roboto, sans-serif"}}>Subscribe to our newsletter to receive updates on new episodes, community events, forum posts, & more!</p>
       </div>
-      <form action="#" method="POST" className="mx-auto mt-16 max-w-3xl sm:mt-14">
+      <form onSubmit={(e) => {
+        e.preventDefault()
+        setSubmitted(true)
+      }} className="mx-auto mt-16 max-w-3xl sm:mt-14">
         <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
           <div>
             <label htmlFor="first-name" className="block text-md/8 font-semibold text-gray-900" style={{fontFamily: "Roboto, sans-serif"}}>
@@ -96,13 +114,13 @@ export default function Newsletter() {
           </div>
         </div>
         <div className="mt-10">
-          <a
-            href={"#"}
+          <button
+            type="submit"
             className="bg-[#FA5857] text-white font-bold px-4 py-2 md:px-10 md:py-5 md:text-md rounded-full border-2 border-black shadow-[8px_8px_0px_rgba(0,0,0,1)] hover:text-black hover:bg-[#FFC72C] transition"
             style={{fontFamily: "Jua, sans-serif"}}
             >
             SUBMIT
-          </a>
+          </button>
         </div>
       </form>
       </div>
