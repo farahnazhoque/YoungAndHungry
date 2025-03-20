@@ -28,7 +28,7 @@ export default function Forum() {
         title: "Sports Prodigy Interview",
         description: "14-year-old Michael shares his journey to becoming a tennis champion", 
         date: "March 8, 2024",
-        imageSrc: `${import.meta.env.BASE_URL}episode2ph.png`,
+        imageSrc: `${import.meta.env.BASE_URL}episodes2ph.png`,
         imageAlt: "Episode 2 cover",
         comments: [
           {
@@ -44,7 +44,7 @@ export default function Forum() {
         title: "Tech Whiz Kid",
         description: "11-year-old Emma talks about creating her first mobile app",
         date: "March 1, 2024",
-        imageSrc: `${import.meta.env.BASE_URL}episode3ph.png`,
+        imageSrc: `${import.meta.env.BASE_URL}episodes3ph.png`,
         imageAlt: "Episode 3 cover",
         comments: [
           {
