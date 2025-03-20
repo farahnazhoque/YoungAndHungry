@@ -171,12 +171,12 @@ function Home() {
         </div>
       </div>
 
-      <div className="bg-[#EB8942] py-12 border-b-5 border-t-5 border-black">
-        <div className=" mx-auto max-w-2xl px-4 pb-16 sm:px-6 lg:max-w-7xl lg:px-8">
+      <div className="bg-[#EB8942] py-8 border-5 border-black">
+        <div className=" mx-auto max-w-2xl px-4 pb-12 sm:px-6 lg:max-w-7xl lg:px-8">
           <h1 className="underline decoration-dashed text-[50rem] font-bold text-center text-black" style={{marginBottom: '5rem', fontFamily: "Jua, sans-serif", fontSize: '3rem'}}>Latest Podcasts</h1>
 
           {/* Grid Layout for Podcasts */}
-          <div className="mt-10 mb-16 mx-auto max-w-6xl grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 mb-12 mx-auto max-w-6xl grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {podcast.map((episode) => (
           <div
             key={episode.id}
@@ -221,7 +221,7 @@ function Home() {
 
       
       <div
-        className="relative isolate px-4 sm:px-6 pt-14 lg:px-8 bg-su bg-cover bg-center bg-no-repeat min-h-[40vh] sm:min-h-[60vh] lg:min-h-[80vh] w-full border-b-5 border-black"
+        className="relative isolate px-4 sm:px-6 pt-14 lg:px-8 bg-su bg-cover bg-center bg-no-repeat min-h-[40vh] sm:min-h-[60vh] lg:min-h-[80vh] w-full border-black"
       >
 
         <div
@@ -258,7 +258,7 @@ function Home() {
 
         </div>
         <div className="flex flex-col sm:mt-10 sm:flex-row sm:justify-center justify-center items-center gap-3 mb-16 w-full px-6">
-          <div className="-mt-15 sm:-mt-40 sm:-ml-70">
+          <div className="-mt-20 sm:-mt-40 sm:-ml-70">
           <Link
             to="/signup"
             className="block w-full sm:w-auto text-center bg-[#EB8942] text-white font-bold px-4 py-2 sm:px-6 sm:py-3 md:px-10 md:py-5 text-sm sm:text-base md:text-xl rounded-full border-2 border-black shadow-[8px_8px_0px_rgba(0,0,0,1)] hover:bg-[#FA5857] transition whitespace-normal sm:whitespace-nowrap"
@@ -281,12 +281,12 @@ function Home() {
               clipPath:
                 'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
             }}
-            className="relative left-[calc(50%+3rem)] aspect-1155/678 w-[36.125rem] -translate-x-1/2 bg-linear-to-tr from-[#ff80b5] to-[#1FA19C] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
+            className="relative left-[calc(50%+3rem)] aspect-1155/678 w-[36.125rem] -translate-x-1/2 opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
           />
         </div>
       </div>
 
-      <div className="bg-[#EB8942] py-16 border-b-5 border-black">
+      <div className="bg-[#EB8942] py-16 border-5 border-black">
         <div className=" mx-auto max-w-2xl px-4 pb-16 sm:px-6 lg:max-w-7xl lg:px-8">
           <h1 className="underline decoration-dashed text-[50rem] font-bold text-center text-black" style={{marginBottom: '5rem', fontFamily: "Jua, sans-serif", fontSize: '3rem'}}>About Us</h1>
 
